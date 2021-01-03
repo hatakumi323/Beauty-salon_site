@@ -74,7 +74,7 @@
     </div>
   </section><!-- #Slider End -->
 
-  <section class="container content">
+  <section class="container border-bottom border-white pb-3 mb-5">
 
     <div class="media">
       <figure class="media__img-wrapper">
@@ -138,15 +138,19 @@
           <div class="col-md-9">
             <div class="form-check mb-3">
               <input class="form-check-input" type="checkbox" id="opt1" v-model="opt1_use">
-              <label class="form-check-label" for="opt1">カラーのみ ＋{{taxedOpt1 | number_format}}円</label>
+              <label class="form-check-label" for="opt1">カットのみ ＋{{taxedOpt1 | number_format}}円</label>
             </div>
             <div class="form-check mb-3">
               <input class="form-check-input" type="checkbox" id="opt2" v-model="opt2_use">
-              <label class="form-check-label" for="opt2">カラー＋カット ＋{{taxedOpt2 | number_format}}円</label>
+              <label class="form-check-label" for="opt2">カラーのみ ＋{{taxedOpt2 | number_format}}円</label>
             </div>
             <div class="form-check mb-3">
               <input class="form-check-input" type="checkbox" id="opt3" v-model="opt3_use">
-              <label class="form-check-label" for="opt3">カラー＋カット＋パーマ ＋{{taxedOpt3 | number_format}}円</label>
+              <label class="form-check-label" for="opt3">カラー＋カット ＋{{taxedOpt3 | number_format}}円</label>
+            </div>
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" id="opt4" v-model="opt4_use">
+              <label class="form-check-label" for="opt4">カラー＋カット＋パーマ ＋{{taxedOpt4 | number_format}}円</label>
             </div>
           </div>
         </div>

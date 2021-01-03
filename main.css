@@ -3,13 +3,10 @@
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-.content {
-    padding: 60px 15px;
-  }
-
 .media {
     display: flex;
     align-items: center;
+    padding: 60px 0;
   }
   
   .media__img-wrapper {
