@@ -158,3 +158,24 @@
     background-repeat: no-repeat;
     z-index: -1;
     }
+
+    .location {
+      padding: 4px 0;
+    }
+
+    #location .container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .location-info {
+      width: 22%;
+    }
+
+    .location-info p {
+      padding: 12px 10px;
+    }
+
+    .location-map {
+      width: 74%;
+    }
