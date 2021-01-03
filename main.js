@@ -8,19 +8,11 @@ Vue.filter('number_format', function(val) {
     el: '#app',
     data: {
       // 消費税率
-      taxRate: 0.08,
+      taxRate: 0.10,
       // 制作したいムービー
       movieType: '余興ムービー',
       // 基本料金（税抜き）
-      basePrice: 30000,
-      // 割増料金
-      addPrice1: 5000,  // 納期が1ヵ月未満の場合
-      addPrice2: 10000, // 納期が3週間未満の場合
-      addPrice3: 15000, // 納期が2週間未満の場合
-      addPrice4: 20000, // 納期が1週間未満の場合
-      addPrice5: 40000, // 納期が3日後の場合
-      addPrice6: 45000, // 納期が2日後の場合
-      addPrice7: 50000, // 納期が翌日の場合
+      basePrice: 0,
       // オプション料金（税抜き）
       optPrice: 0,
       // 合計金額（税抜き）
@@ -31,13 +23,13 @@ Vue.filter('number_format', function(val) {
       delivery_date: '',
       // オプション「BGM手配」
       opt1_use: false,              // true：利用する、false：利用しない
-      opt1_price: 5000,             // 料金（税抜き）
+      opt1_price: 8000,             // 料金（税抜き）
       // オプション「撮影」
       opt2_use: false,              // true：利用する、false：利用しない
-      opt2_price: 5000,             // 料金（税抜き）
+      opt2_price: 11000,             // 料金（税抜き）
       // オプション「DVD盤面印刷」
       opt3_use: false,              // true：利用する、false：利用しない
-      opt3_price: 5000,             // 料金（税抜き）
+      opt3_price: 15000,             // 料金（税抜き）
       // オプション「写真スキャニング」
       opt4_num: 0,                  // 利用枚数
       opt4_price: 500,              // 料金（税抜き）
