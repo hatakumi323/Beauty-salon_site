@@ -1,4 +1,39 @@
-// 数値を通貨書式「#,###,###」に変換するフィルター
+
+$(document).ready(function(){
+  //URLのハッシュ値を取得
+  var urlHash = location.hash;
+  //ハッシュ値があればページ内スクロール
+  if(urlHash) {
+    //スクロールを0に戻す
+    $('body,html').stop().scrollTop(0);
+    setTimeout(function () {
+      //ロード時の処理を待ち、時間差でスクロール実行
+      scrollToAnker(urlHash) ;
+    });
+  }
+
+  //通常のクリック時
+  $('a[href^="#"]').click(function() {
+    //ページ内リンク先を取得
+    var href= $(this).attr("href");
+    //リンク先が#か空だったらhtmlに
+    var hash = href == "#" || href == "" ? 'html' : href;
+    //スクロール実行
+    scrollToAnker(hash);
+    //リンク無効化
+    return false;
+  });
+
+  // 関数：スムーススクロール
+  // 指定したアンカー(#ID)へアニメーションでスクロール
+  function scrollToAnker(hash) {
+    var target = $(hash);
+    var position = target.offset().top;
+    $('body,html').stop().animate({scrollTop:position}, 300);
+  }
+})
+
+// お問合せ
 Vue.filter('number_format', function(val) {
     return val.toLocaleString();
   });
@@ -26,13 +61,13 @@ Vue.filter('number_format', function(val) {
       opt1_price: 8000,             // 料金（税抜き）
       // オプション「撮影」
       opt2_use: false,              // true：利用する、false：利用しない
-      opt2_price: 11000,             // 料金（税抜き）
+      opt2_price: 4000,             // 料金（税抜き）
       // オプション「DVD盤面印刷」
       opt3_use: false,              // true：利用する、false：利用しない
       opt3_price: 15000,             // 料金（税抜き）
       // オプション「写真スキャニング」
-      opt4_num: 0,                  // 利用枚数
-      opt4_price: 500,              // 料金（税抜き）
+      opt4_use: false,                  // 利用枚数
+      opt4_price: 18000,              // 料金（税抜き）
     },
     methods: {
       // 税抜金額を税込金額に変換するメソッド
@@ -59,19 +94,15 @@ Vue.filter('number_format', function(val) {
       }
     },
     computed: {
-      // オプション「BGM手配」の税込金額を返す算出プロパティ
       taxedOpt1: function() {
         return this.incTax(this.opt1_price);
       },
-      // オプション「撮影」の税込金額を返す算出プロパティ
       taxedOpt2: function() {
         return this.incTax(this.opt2_price);
       },
-      // オプション「DVD盤面印刷」の税込金額を返す算出プロパティ
       taxedOpt3: function() {
         return this.incTax(this.opt3_price);
       },
-      // オプション「写真スキャニング」の税込金額を返す算出プロパティ
       taxedOpt4: function() {
         return this.incTax(this.opt4_price);
       },
@@ -81,35 +112,7 @@ Vue.filter('number_format', function(val) {
         var addPrice = 0;
         // 納期までの残り日数を計算
         var dateDiff = this.getDateDiff(this.delivery_date, (new Date()).toLocaleString());
-        // 割増料金を求める
-        if (21 <= dateDiff && dateDiff < 30) {
-          // 納期が1ヵ月未満の場合
-          addPrice = this.addPrice1;
-        }
-        else if (14 <= dateDiff && dateDiff < 21) {
-          // 納期が3週間未満の場合
-          addPrice = this.addPrice2;
-        }
-        else if (7 <= dateDiff && dateDiff < 14) {
-          // 納期が2週間未満の場合
-          addPrice = this.addPrice3;
-        }
-        else if (3 < dateDiff && dateDiff < 7) {
-          // 納期が1週間未満の場合
-          addPrice = this.addPrice4;
-        }
-        else if (dateDiff == 3) {
-          // 納期が3日後の場合
-          addPrice = this.addPrice5;
-        }
-        else if (dateDiff == 2) {
-          // 納期が2日後の場合
-          addPrice = this.addPrice6;
-        }
-        else if (dateDiff == 1) {
-          // 納期が翌日の場合
-          addPrice = this.addPrice7;
-        }
+        
         // 基本料金（税込）を返す
         return this.incTax(this.basePrice + addPrice);
       },
@@ -117,15 +120,14 @@ Vue.filter('number_format', function(val) {
       taxedOptPrice: function() {
         // オプション料金
         var optPrice = 0;
-        // BGM手配
+        // カット
         if (this.opt1_use) { optPrice += this.opt1_price; }
-        // 撮影
+        // カラー
         if (this.opt2_use) { optPrice += this.opt2_price; }
-        // DVD盤面印刷
+        // カット＋カラー
         if (this.opt3_use) { optPrice += this.opt3_price; }
-        // 写真スキャニング
-        if (this.opt4_num == '') { this.opt4_num = 0; }
-        optPrice += this.opt4_num * this.opt4_price;
+        // カット＋カラー＋パーマ
+        if (this.opt4_use) { optPrice += this.opt4_price; }
         // オプション料金（税込）を返す
         return this.incTax(optPrice);
       },
@@ -144,12 +146,9 @@ Vue.filter('number_format', function(val) {
     created: function() {
       // 今日の日付を取得
       var dt = new Date();
-      // 挙式日に2ヵ月後の日付を設定
+      // 2ヵ月後の日付を設定
       dt.setMonth(dt.getMonth() + 2);
       this.wedding_date = this.formatDate(dt);
-      // DVD仕上がり予定日に、挙式日の１週間前の日付を設定
-      dt.setDate(dt.getDate() - 7);
-      this.delivery_date = this.formatDate(dt);
     }
   });
   
