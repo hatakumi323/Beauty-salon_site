@@ -16,7 +16,7 @@
 
     <nav class="container navbar navbar-expand-lg navbar-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">Beauty Salon</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -54,11 +54,11 @@
               <div class="py-5 py-md-0">
                 <small class="text-muted text-uppercase mb-1 d-block">Beauty Salon</small>
                 <h2>Beauty Salon</h2>
-                <h5 class="font-weight-light ls1" style="opacity: .7">We’re Pedro and Aistė, a passionate digital
-                  designer and a skillful Canvas developer focused in delivering a high quality service.</h5>
+                <small class="font-weight-light ls1" style="opacity: .7">What we can do is to always pursue beauty and fulfill our customers' wish to be beautiful.
+                  We want our customers' colors and our colors to shine beautifully in this salon.
+                  Each and every one of our staff takes beauty seriously and provides the best techniques and knowledge.</small>
                 <div class="d-flex align-items-center mt-5">
-                  <a href="#contact"
-                    class="overflow-hidden mx-0 px-5">
+                  <a href="#contact" class="overflow-hidden mx-0 px-5">
                     <button type="button" class="btn btn-outline-primary">E-mail Me Hera !</button>
                   </a>
                 </div>
@@ -82,11 +82,14 @@
       </figure>
       <div class="media__body">
         <h3 class="media__title">
-          ユーザーを考えた設計で満足な体験を
+          Concept
         </h3>
         <p class="media__text">
-          提供するサービスやペルソナによって、webサイトの設計は異なります。サービスやペルソナに合わせた設計を行うことにより、訪問者にストレスのないよりよい体験を生み出し、満足を高めることとなります。<br>
-          わたしたちはお客さまのサイトに合ったユーザビリティを考えるため、分析やヒアリングをきめ細かく実施、満足を体験できるクリエイティブとテクノロジーを設計・構築し、今までにない期待を超えたユーザー体験を提供いたします。
+          私達にできることは、常に美を追求し、
+          お客様の美しく在りたいという願いを叶えること。
+          <br>
+          お客様の色と私達の色が、このサロンで色とりどり、
+          美しく輝くように。
         </p>
       </div>
       <!-- /.media__body -->
@@ -103,14 +106,17 @@
         </h3>
         <p>
           住所：東京都 ○ ○ 区<br>
-          ○ ○ ○ ○ ○  000-22-1<br>
+          ○ ○ ○ ○ ○ 000-22-1<br>
           ○ ○ ○ <br>
           電話： 03-✕✕✕✕-✕✕✕✕<br>
           休日：水曜
         </p>
       </div>
       <div class="location-map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.4470125034877!2d139.73466851520018!3d35.66599373841504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b835942e165%3A0xb4897f1f4264c771!2z44CSMTA2LTAwMzIg5p2x5Lqs6YO95riv5Yy65YWt5pys5pyo77yS5LiB55uu77yU4oiS77yV!5e0!3m2!1sja!2sjp!4v1609703399678!5m2!1sja!2sjp" width="800" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.4470125034877!2d139.73466851520018!3d35.66599373841504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b835942e165%3A0xb4897f1f4264c771!2z44CSMTA2LTAwMzIg5p2x5Lqs6YO95riv5Yy65YWt5pys5pyo77yS5LiB55uu77yU4oiS77yV!5e0!3m2!1sja!2sjp!4v1609703399678!5m2!1sja!2sjp"
+          width="800" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+          tabindex="0"></iframe>
       </div>
     </div>
   </section>
@@ -159,8 +165,8 @@
           <label class="col-md-3 col-form-label pt-0">合計（税込）</label>
           <div class="col-md-9">
             <div class="input-group">
-              <input type="text" class="form-control" id="sum_total"
-                v-bind:value="taxedTotalPrice | number_format" readonly>
+              <input type="text" class="form-control" id="sum_total" v-bind:value="taxedTotalPrice | number_format"
+                readonly>
               <div class="input-group-append">
                 <label class="input-group-text">円</label>
               </div>
@@ -172,7 +178,7 @@
           <label class="col-md-3 col-form-label pt-0">お名前</label>
           <div class="col-md-9">
             <div class="input-group">
-              <input type="text" class="form-control text-right" id="sum_opt">
+              <input type="text" class="form-control text-right" id="sum_opt" placeholder="your name">
             </div>
           </div>
         </div>
@@ -181,7 +187,7 @@
           <label class="col-md-3 col-form-label pt-0">メールアドレス</label>
           <div class="col-md-9">
             <div class="input-group">
-              <input type="text" class="form-control text-right" id="sum_opt">
+              <input type="text" class="form-control text-right" id="sum_opt" placeholder="name@email.com">
             </div>
           </div>
         </div>

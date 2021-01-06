@@ -27,13 +27,14 @@
   }
   
   .media__title {
-    margin-bottom: 10px;
-    font-size: 1.125rem;
+    margin-bottom: 50px;
+    font-size: 2rem;
     font-weight: bold;
+    color: #fff;
   }
   
   .media__text {
-    /* css-wipeではスタイリングなし */
+    line-height: 3;
   }
   
   @media screen and (max-width: 768px) {
