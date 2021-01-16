@@ -3,6 +3,10 @@
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
+.slider-inner {
+  height: 75vh;
+}
+
 .media {
     display: flex;
     align-items: center;
@@ -149,7 +153,7 @@
     left: 0;
     right: 0;
     width: 100%;
-    background-image: linear-gradient(#ff6c94, #432c02);
+    background-image: url('xan-griffin-RfFRYmvu6JE-unsplash.jpg');
     min-height: 100vh;
     background-position: center center;
     background-size: cover;
